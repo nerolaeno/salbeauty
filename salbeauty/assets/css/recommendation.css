@@ -1,0 +1,170 @@
+/* ========================================= */
+/* HEADER */
+/* ========================================= */
+
+.recommendation-header{
+
+    padding-top:140px;
+    padding-bottom:70px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #fff5f7 40%,
+        #ffe8ee 100%
+    );
+
+}
+
+.recommendation-title{
+
+    font-size:3rem;
+    font-weight:700;
+    margin-bottom:18px;
+    color:#2B2B2B;
+
+}
+
+.recommendation-description{
+
+    color:#666;
+    line-height:1.8;
+    max-width:700px;
+
+}
+
+.recommendation-score-card{
+
+    padding:35px;
+    text-align:center;
+
+}
+
+.recommendation-score-card h5{
+
+    color:#777;
+    margin-bottom:10px;
+
+}
+
+.recommendation-score-card h2{
+
+    font-size:3rem;
+    color:#F06292;
+    font-weight:700;
+
+}
+
+/* ========================================= */
+/* FILTER */
+/* ========================================= */
+
+.filter-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,0.05);
+
+    margin-top:-30px;
+    position:relative;
+    z-index:20;
+
+}
+
+.custom-input{
+
+    border-radius:14px;
+    padding:14px;
+
+    border:1px solid #f3dce3;
+
+    font-size:14px;
+
+}
+
+.custom-input:focus{
+
+    border-color:#F06292;
+    box-shadow:none;
+
+}
+
+/* ========================================= */
+/* PRODUCT */
+/* ========================================= */
+
+.product-category{
+
+    display:inline-block;
+
+    background:#ffe5ee;
+
+    color:#F06292;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+    font-weight:600;
+
+    margin-bottom:14px;
+
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media(max-width:992px){
+
+    .recommendation-title{
+
+        font-size:2.3rem;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .recommendation-header{
+
+        text-align:center;
+
+    }
+
+    .recommendation-title{
+
+        font-size:2rem;
+
+    }
+
+    .filter-card{
+
+        margin-top:0;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .recommendation-title{
+
+        font-size:1.7rem;
+
+    }
+
+    .recommendation-score-card h2{
+
+        font-size:2.2rem;
+
+    }
+
+}

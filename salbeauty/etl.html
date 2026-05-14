@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ETL Process - Salbeauty</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icon -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="stylesheet" href="assets/css/etl.css">
+
+</head>
+
+<body>
+
+<div id="etlApp">
+
+<!-- ========================================= -->
+<!-- NAVBAR -->
+<!-- ========================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">
+Salbeauty
+</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link" href="index.html">
+Home
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="dashboard.html">
+Dashboard
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="recommendation.html">
+Rekomendasi
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active" href="etl.html">
+ETL
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="evaluation.html">
+Evaluasi
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- ========================================= -->
+<!-- HEADER -->
+<!-- ========================================= -->
+
+<section class="etl-header">
+
+<div class="container text-center">
+
+<h1 class="etl-title">
+
+ETL Process Business Intelligence
+
+</h1>
+
+<p class="etl-description">
+
+Tahapan pengolahan data kosmetik mulai dari extraction, transformation, hingga loading untuk kebutuhan analytics dan DSS recommendation system.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- PIPELINE -->
+<!-- ========================================= -->
+
+<section class="section-space">
+
+<div class="container">
+
+<div class="row g-4 justify-content-center">
+
+<!-- EXTRACT -->
+<div class="col-lg-3 col-md-6">
+
+<div class="pipeline-card">
+
+<div class="pipeline-icon">
+<i class="bi bi-database"></i>
+</div>
+
+<h4>
+Extract
+</h4>
+
+<p>
+
+Mengambil dataset kosmetik mentah yang berisi informasi produk, rating, harga, brand, ingredient, dan review.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- TRANSFORM -->
+<div class="col-lg-3 col-md-6">
+
+<div class="pipeline-card">
+
+<div class="pipeline-icon">
+<i class="bi bi-funnel"></i>
+</div>
+
+<h4>
+Transform
+</h4>
+
+<p>
+
+Melakukan cleaning data, normalisasi nilai, kategorisasi harga, dan perhitungan DSS score.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ANALYTICS -->
+<div class="col-lg-3 col-md-6">
+
+<div class="pipeline-card">
+
+<div class="pipeline-icon">
+<i class="bi bi-bar-chart"></i>
+</div>
+
+<h4>
+Analytics
+</h4>
+
+<p>
+
+Visualisasi Business Intelligence menggunakan dashboard analytics dan DSS recommendation.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- ETL DETAIL -->
+<!-- ========================================= -->
+
+<section class="pb-5">
+
+<div class="container">
+
+<div class="section-title-wrapper">
+
+<h2 class="section-title">
+ETL Workflow
+</h2>
+
+<p class="section-subtitle">
+
+Implementasi ETL berdasarkan notebook Google Colab dan proses Business Intelligence.
+
+</p>
+
+</div>
+
+<div class="workflow-wrapper">
+
+<div class="workflow-step">
+
+<div class="workflow-number">
+1
+</div>
+
+<div class="workflow-content">
+
+<h5>
+Data Extraction
+</h5>
+
+<p>
+
+Dataset kosmetik diambil dari sumber data mentah kemudian disimpan dalam format CSV untuk kebutuhan analisis.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-number">
+2
+</div>
+
+<div class="workflow-content">
+
+<h5>
+Data Cleaning
+</h5>
+
+<p>
+
+Menghapus missing values, memperbaiki format data, dan menyesuaikan struktur dataset.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-number">
+3
+</div>
+
+<div class="workflow-content">
+
+<h5>
+Feature Engineering
+</h5>
+
+<p>
+
+Membuat kategori harga, score rating, review score, dan normalisasi data DSS.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-number">
+4
+</div>
+
+<div class="workflow-content">
+
+<h5>
+DSS Calculation
+</h5>
+
+<p>
+
+Menghitung DSS score berdasarkan bobot:
+Rating 50%, Harga 30%, dan Review 20%.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-number">
+5
+</div>
+
+<div class="workflow-content">
+
+<h5>
+Visualization
+</h5>
+
+<p>
+
+Data hasil transformasi divisualisasikan dalam dashboard Business Intelligence dan recommendation system.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="row gy-4">
+
+<div class="col-lg-6">
+
+<h4 class="footer-logo">
+Salbeauty
+</h4>
+
+<p class="footer-text">
+
+ETL dan Business Intelligence untuk recommendation system kosmetik berbasis DSS.
+
+</p>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="footer-menu">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+<a href="recommendation.html">
+Rekomendasi
+</a>
+
+<a href="etl.html">
+ETL
+</a>
+
+<a href="evaluation.html">
+Evaluasi
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="footer-bottom">
+
+© 2026 Salbeauty Intelligence Platform
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

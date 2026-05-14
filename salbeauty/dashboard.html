@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Beauty Trends & Insights - Salbeauty</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icon -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="stylesheet" href="assets/css/dashboard.css">
+
+</head>
+
+<body>
+
+<div id="dashboardApp">
+
+<!-- ========================================= -->
+<!-- NAVBAR -->
+<!-- ========================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">
+Salbeauty
+</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link" href="index.html">
+Home
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active" href="dashboard.html">
+Dashboard
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="recommendation.html">
+Rekomendasi
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="etl.html">
+Beauty Process
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="evaluation.html">
+Beauty Insights
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- ========================================= -->
+<!-- HEADER -->
+<!-- ========================================= -->
+
+<section class="dashboard-header">
+
+<div class="container">
+
+<div class="row align-items-center gy-4">
+
+<div class="col-lg-8">
+
+<div class="dashboard-badge">
+Beauty Trends & Insights
+</div>
+
+<h1 class="dashboard-title">
+
+Beauty Trends & Insights
+
+</h1>
+
+<p class="dashboard-description">
+
+Temukan insight menarik tentang tren skincare, brand favorit, dan produk beauty dengan rating terbaik berdasarkan preferensi pengguna.
+
+</p>
+
+<div class="dashboard-cta">
+<a href="recommendation.html" class="btn btn-pink">
+Explore Products
+</a>
+<a href="#topProductChart" class="btn btn-outline-pink">
+Find Your Match
+</a>
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="glass-card dashboard-score-card">
+
+<h5>
+Beauty Match Score
+</h5>
+
+<h2>
+
+{{ avgDSS }}% Match
+
+</h2>
+
+<div class="dashboard-mini-illustration">
+<span>&#128132;</span>
+<span>&#10024;</span>
+<span>&#128151;</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- KPI -->
+<!-- ========================================= -->
+
+<section class="dashboard-kpi-section section-space pt-0">
+
+<div class="container">
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="kpi-card">
+
+<div class="kpi-icon">
+<span class="kpi-emoji">&#127873;</span>
+</div>
+
+<h3>
+15.000+ Beauty Products
+</h3>
+
+<p>
+Koleksi skincare dan makeup pilihan
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="kpi-card">
+
+<div class="kpi-icon">
+<span class="kpi-emoji">&#127800;</span>
+</div>
+
+<h3>
+Beauty Categories
+</h3>
+
+<p>
+Beragam kategori produk kecantikan
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="kpi-card">
+
+<div class="kpi-icon">
+<span class="kpi-emoji">&#128151;</span>
+</div>
+
+<h3>
+Most Loved Brand
+</h3>
+
+<p>
+Brand favorit pengguna minggu ini
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="kpi-card">
+
+<div class="kpi-icon">
+<span class="kpi-emoji">&#11088;</span>
+</div>
+
+<h3>
+User Favorite Rating
+</h3>
+
+<p>
+Rata-rata kepuasan pengguna
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- CHARTS -->
+<!-- ========================================= -->
+
+<section class="dashboard-tabbar-section">
+
+<div class="container">
+
+<div class="dashboard-tabbar">
+
+<button
+v-for="tab in chartTabs"
+:key="tab.key"
+class="dashboard-tab-button"
+:class="{ active: activeDashboardTab === tab.key }"
+@click="switchDashboardTab(tab.key)"
+>
+{{ tab.label }}
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="skin-match-section" v-show="activeDashboardTab === 'decision'">
+
+<div class="container">
+
+<div class="section-title-wrapper dashboard-section-header">
+
+<h2 class="section-title">
+Best Products for Your Skin Type
+</h2>
+
+<p class="section-subtitle">
+Rekomendasi produk terbaik berdasarkan kecocokan dengan jenis kulit pengguna
+</p>
+
+</div>
+
+<div class="skin-tabs">
+
+<button
+v-for="tab in skinTabs"
+:key="tab.key"
+class="skin-tab"
+:class="{ active: activeSkinType === tab.key }"
+@click="activeSkinType = tab.key"
+>
+{{ tab.label }}
+</button>
+
+</div>
+
+<div class="row g-4 align-items-start">
+
+<div class="col-lg-6">
+
+<div class="chart-card skin-chart-card">
+
+<h4 class="chart-title">
+Skin Match Comparison
+</h4>
+
+<p class="chart-description">
+Perbandingan beauty match tertinggi untuk tiap tipe kulit.
+</p>
+
+<div class="skin-chart-wrap">
+<canvas id="skinChart"></canvas>
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="skin-recommendation-panel">
+
+<div class="skin-panel-header">
+
+<span class="skin-panel-kicker">
+Recommended for {{ activeSkinLabel }}
+</span>
+
+<p>
+Top picks yang paling cocok untuk kulitmu.
+</p>
+
+</div>
+
+<div class="skin-recommendation-list">
+
+<div
+class="skin-rec-card"
+v-for="product in activeSkinRecommendations"
+:key="product.product_name"
+>
+
+<div class="skin-rec-top">
+
+<div>
+
+<span class="skin-rec-brand">
+{{ product.brand }}
+</span>
+
+<h5>
+{{ product.product_name }}
+</h5>
+
+</div>
+
+<span class="skin-rec-badge">
+{{ formatPercent(product.dss_score) }}
+</span>
+
+</div>
+
+<div class="skin-rec-meta">
+
+<span>
+<i class="bi bi-star-fill"></i>
+{{ product.ratingValue.toFixed(1) }}
+</span>
+
+<span>
+<i class="bi bi-currency-dollar"></i>
+{{ formatPrice(product.price) }}
+</span>
+
+</div>
+
+<p class="skin-rec-text">
+Rekomendasi ringkas untuk membantu kamu memilih produk yang paling cocok sebelum checkout.
+</p>
+
+</div>
+
+</div>
+
+<div class="skin-panel-footer">
+
+<a href="recommendation.html" class="btn btn-pink">
+Find Your Match
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="dashboard-charts-section">
+
+<div class="container">
+
+<div class="section-title-wrapper dashboard-section-header">
+
+<h2 class="section-title">
+Beauty Choices That Help You Decide
+</h2>
+
+<p class="section-subtitle">
+Insight yang dirancang untuk membantu kamu menemukan produk, brand, dan value terbaik.
+</p>
+
+</div>
+
+<div class="dashboard-tab-panels">
+
+<div class="dashboard-tab-panel" v-show="activeDashboardTab === 'decision'">
+
+<div class="row g-4">
+
+<div class="col-12">
+
+<div class="chart-card chart-card--tall decision-chart-card decision-chart-card--tall">
+
+<h4 class="chart-title">
+Top Beauty Picks
+</h4>
+
+<p class="chart-description">
+Produk kosmetik dengan kombinasi rating tinggi, review terbaik, dan kualitas paling direkomendasikan.
+</p>
+
+<canvas id="categoryChart"></canvas>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="chart-card decision-chart-card">
+
+<h4 class="chart-title">
+Best Value Products
+</h4>
+
+<p class="chart-description">
+Produk dengan kualitas terbaik pada rentang harga yang lebih terjangkau.
+</p>
+
+<canvas id="priceChart"></canvas>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="chart-card decision-chart-card">
+
+<h4 class="chart-title">
+User Satisfaction Highlights
+</h4>
+
+<p class="chart-description">
+Produk dengan tingkat kepuasan pengguna tertinggi berdasarkan review dan rating.
+</p>
+
+<canvas id="ratingChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="dashboard-tab-panel" v-show="activeDashboardTab === 'discover'">
+
+<div class="row g-4">
+
+<div class="col-lg-6">
+
+<div class="chart-card">
+
+<h4 class="chart-title">
+Most Loved Beauty Brands
+</h4>
+
+<p class="chart-description">
+Brand kosmetik yang paling banyak direkomendasikan dan disukai pengguna.
+</p>
+
+<canvas id="brandChart"></canvas>
+
+<div class="brand-ranking-list">
+
+<div
+class="brand-mini-card"
+v-for="brand in mostLovedBrands.slice(0,3)"
+:key="brand.brand"
+>
+
+<div>
+
+<span class="brand-mini-label">
+{{ brand.brand }}
+</span>
+
+<h6>
+{{ brand.avgRating }} &#9733; average rating
+</h6>
+
+</div>
+
+<span class="brand-mini-score">
+{{ brand.popularityScore }}
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="chart-card">
+
+<h4 class="chart-title">
+Trending Products
+</h4>
+
+<p class="chart-description">
+Produk kosmetik yang sedang populer dan banyak diminati pengguna.
+</p>
+
+<canvas id="topProductChart"></canvas>
+
+</div>
+
+</div>
+
+<div class="col-12">
+
+<div class="chart-card">
+
+<h4 class="chart-title">
+Most Popular Ingredients
+</h4>
+
+<p class="chart-description">
+Kandungan skincare yang paling sering ditemukan pada produk favorit pengguna.
+</p>
+
+<canvas id="ingredientChart"></canvas>
+
+<div class="ingredient-chip-list">
+
+<span
+class="ingredient-chip"
+v-for="item in ingredientHighlights"
+:key="item.ingredient"
+>
+{{ item.ingredient }}
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="dashboard-tab-panel" v-show="activeDashboardTab === 'compare'">
+
+<div class="row g-4 align-items-stretch">
+
+<div class="col-lg-8">
+
+<div class="chart-card">
+
+<h4 class="chart-title">
+Price vs Quality Insight
+</h4>
+
+<p class="chart-description">
+Tidak semua produk mahal memiliki kualitas terbaik.
+</p>
+
+<canvas id="dssChart"></canvas>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="chart-card compare-note-card">
+
+<h4 class="chart-title">
+Best Value Shortlist
+</h4>
+
+<p class="chart-description">
+Pilihan cepat untuk produk yang seimbang antara harga, rating, dan kecocokan.
+</p>
+
+<div class="compare-list">
+
+<div
+class="compare-item"
+v-for="item in compareInsights"
+:key="item.product_name"
+>
+
+<div>
+
+<span class="compare-product">
+{{ item.product_name }}
+</span>
+
+<span class="compare-brand">
+{{ item.brand }}
+</span>
+
+</div>
+
+<div class="compare-meta">
+
+<span>{{ item.price }}</span>
+<span>{{ item.rating }} &#9733;</span>
+<span>{{ item.score }}%</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- RECOMMENDED FOR YOU -->
+<!-- ========================================= -->
+
+<section class="beauty-feeling-section">
+
+<div class="container">
+
+<div class="section-title-wrapper">
+
+<h2 class="section-title">
+Recommended For You
+</h2>
+
+<p class="section-subtitle">
+Ringkasan singkat yang membantu kamu memilih produk lebih cepat tanpa harus membaca terlalu banyak data.
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="feeling-card">
+
+<div class="feeling-icon">
+<span>&#10024;</span>
+</div>
+
+<h5>Top Beauty Picks</h5>
+<p>Produk dengan Beauty Match tertinggi untuk pertimbangan utama.</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="feeling-card">
+
+<div class="feeling-icon">
+<span>&#128151;</span>
+</div>
+
+<h5>Best Value</h5>
+<p>Beauty picks dengan kualitas tinggi dan harga yang lebih ramah.</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="feeling-card">
+
+<div class="feeling-icon">
+<span>&#127800;</span>
+</div>
+
+<h5>Skin Match</h5>
+<p>Produk yang paling cocok untuk tipe kulit yang kamu pilih.</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="feeling-card">
+
+<div class="feeling-icon">
+<span>&#128142;</span>
+</div>
+
+<h5>Trending Now</h5>
+<p>Produk yang sedang banyak dibicarakan dan dicari pengguna.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="row gy-4">
+
+<div class="col-lg-6">
+
+<h4 class="footer-logo">
+Salbeauty
+</h4>
+
+<p class="footer-text">
+
+Beauty platform untuk mengeksplorasi produk skincare dan kosmetik yang paling sesuai dengan kebutuhan dan preferensi kamu.
+
+</p>
+
+<div class="footer-chips">
+<span class="footer-chip"><i class="bi bi-sparkles"></i> Personalized Picks</span>
+<span class="footer-chip"><i class="bi bi-heart-fill"></i> Loved by Users</span>
+<span class="footer-chip"><i class="bi bi-gem"></i> Premium Beauty</span>
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="footer-menu">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+<a href="recommendation.html">
+Rekomendasi
+</a>
+
+<a href="etl.html">
+Beauty Process
+</a>
+
+<a href="evaluation.html">
+Beauty Insights
+</a>
+
+</div>
+
+<div class="footer-note">
+
+<p class="footer-note-title">
+Pantau tren, temukan brand favorit, dan pilih beauty essentials yang paling cocok untuk gaya hidup kamu.
+</p>
+
+<div class="footer-social">
+<span><i class="bi bi-instagram"></i></span>
+<span><i class="bi bi-tiktok"></i></span>
+<span><i class="bi bi-heart-fill"></i></span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="footer-bottom">
+
+&copy; 2026 Salbeauty. All rights reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+
+<!-- ========================================= -->
+<!-- SCRIPT -->
+<!-- ========================================= -->
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Vue -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<!-- PapaParse -->
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<!-- Chart JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- CSV Loader -->
+<script src="assets/js/csv-loader.js"></script>
+
+<!-- Chart Adapter -->
+<script src="assets/js/chart-adapter.js"></script>
+
+<!-- Chart Configs -->
+<script src="assets/js/chart-configs.js"></script>
+
+<!-- Charts -->
+<script src="assets/js/charts.js"></script>
+
+<!-- Dashboard -->
+<script src="assets/js/dashboard.js"></script>
+
+</body>
+
+</html>
+

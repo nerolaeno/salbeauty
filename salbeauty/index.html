@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Salbeauty Intelligence Platform</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+<!-- ========================================= -->
+<!-- NAVBAR -->
+<!-- ========================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">
+Salbeauty
+</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link active" href="index.html">
+Home
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="dashboard.html">
+Dashboard
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="recommendation.html">
+Rekomendasi
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="etl.html">
+ETL
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="evaluation.html">
+Evaluasi
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- ========================================= -->
+<!-- HERO -->
+<!-- ========================================= -->
+
+<section class="hero-section">
+
+<div class="container">
+
+<div class="row align-items-center gy-5">
+
+<div class="col-lg-6">
+
+<div class="hero-badge">
+Personalized Beauty Finder
+</div>
+
+<h1 class="hero-title">
+
+Temukan Produk Kosmetik yang Cocok untuk Kulitmu
+
+</h1>
+
+<p class="hero-description">
+
+Temukan rekomendasi skincare dan makeup terbaik yang disesuaikan dengan jenis kulit, kebutuhan, dan preferensimu untuk membantu kamu memilih produk yang lebih tepat dan sesuai digunakan sehari-hari
+
+</p>
+
+<div class="d-flex flex-wrap gap-3">
+
+<a href="dashboard.html" class="btn btn-pink">
+
+Lihat Dashboard
+
+</a>
+
+<a href="recommendation.html" class="btn btn-outline-pink">
+
+Lihat Rekomendasi
+
+</a>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="glass-card hero-card">
+
+<div class="row g-4">
+
+<div class="col-6">
+
+<div class="summary-card">
+
+<div class="summary-icon">
+<span class="summary-emoji">&#10024;</span>
+</div>
+
+<h3>
+15.000+ Produk Beauty
+</h3>
+
+<p>
+Koleksi beauty terkurasi
+</p>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="summary-card">
+
+<div class="summary-icon">
+<span class="summary-emoji">&#128151;</span>
+</div>
+
+<h3>
+40+ Brand Favorit
+</h3>
+
+<p>
+Brand favorit pilihan
+</p>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="summary-card">
+
+<div class="summary-icon">
+<span class="summary-emoji">&#127800;</span>
+</div>
+
+<h3>
+Beragam Kategori
+</h3>
+
+<p>
+Pilihan kategori lengkap
+</p>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="summary-card">
+
+<div class="summary-icon">
+<span class="summary-emoji">&#128142;</span>
+</div>
+
+<h3>
+Produk Rating Tinggi
+</h3>
+
+<p>
+Ulasan dan rating tinggi
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- TOP DSS PRODUCT -->
+<!-- ========================================= -->
+
+<section class="section-space">
+
+<div class="container">
+
+<div class="section-title-wrapper">
+
+<h2 class="section-title">
+Produk Pilihan untuk Kamu
+</h2>
+
+<p class="section-subtitle">
+
+Temukan produk kosmetik terbaik dengan rating tinggi dan paling sesuai untuk kebutuhanmu.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div
+class="col-lg-4 col-md-6"
+v-for="product in topProducts"
+:key="product.product_name"
+>
+
+<div class="product-card">
+
+<img
+:src="product.image_link"
+class="product-image"
+>
+
+<div class="product-content">
+
+<div class="product-brand">
+
+{{ product.brand }}
+
+</div>
+
+<h5 class="product-title">
+
+{{ product.product_name }}
+
+</h5>
+
+<div class="product-meta">
+
+<span>
+⭐ {{ product.rating }}
+</span>
+
+<span>
+💰 ${{ product.price_usd }}
+</span>
+
+</div>
+
+<div class="dss-score">
+
+Beauty Match:
+{{ (Number(product.dss_score) * 100).toFixed(1) }}%
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- BI OVERVIEW -->
+<!-- ========================================= -->
+
+<section class="section-space bg-soft">
+
+<div class="container">
+
+<div class="section-title-wrapper">
+
+<h2 class="section-title">
+Beauty Insights
+</h2>
+
+<p class="section-subtitle">
+
+Temukan insight menarik seputar tren produk kosmetik, rating pengguna, dan kategori beauty favorit.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="overview-card">
+
+<div class="overview-icon">
+<span class="overview-beauty-icon">&#127800;</span>
+</div>
+
+<h4>
+Kategori Beauty Populer
+</h4>
+
+<p>
+
+Kategori produk yang paling banyak diminati pengguna.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="overview-card">
+
+<div class="overview-icon">
+<span class="overview-beauty-icon">&#10024;</span>
+</div>
+
+<h4>
+Produk dengan Rating Tinggi
+</h4>
+
+<p>
+
+Produk kosmetik favorit dengan rating terbaik dari pengguna.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="overview-card">
+
+<div class="overview-icon">
+<span class="overview-beauty-icon">&#128142;</span>
+</div>
+
+<h4>
+Produk Rekomendasi Terbaik
+</h4>
+
+<p>
+
+Produk pilihan dengan performa dan ulasan terbaik.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- ETL FLOW -->
+<!-- ========================================= -->
+
+<section class="section-space">
+
+<div class="container">
+
+<div class="section-title-wrapper">
+
+<h2 class="section-title">
+Cara Sistem Rekomendasi Bekerja
+</h2>
+
+<p class="section-subtitle">
+
+Sistem kami mengolah data produk kosmetik untuk memberikan rekomendasi yang lebih personal dan sesuai kebutuhan pengguna.
+
+</p>
+
+</div>
+
+<div class="row g-4 justify-content-center">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="etl-card">
+
+<div class="etl-icon">
+<span class="etl-beauty-icon">&#127800;</span>
+</div>
+
+<h5>
+Mengumpulkan Data Produk
+</h5>
+
+<p>
+
+Produk kosmetik dikumpulkan dari berbagai kategori dan brand beauty populer.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="etl-card">
+
+<div class="etl-icon">
+<span class="etl-beauty-icon">&#10024;</span>
+</div>
+
+<h5>
+Analisis & Penyesuaian Produk
+</h5>
+
+<p>
+
+Sistem menganalisis rating, harga, dan ulasan produk untuk menghasilkan rekomendasi terbaik.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="etl-card">
+
+<div class="etl-icon">
+<span class="etl-beauty-icon">&#128151;</span>
+</div>
+
+<h5>
+Hasil Rekomendasi
+</h5>
+
+<p>
+
+Pengguna mendapatkan rekomendasi produk yang lebih sesuai dengan kebutuhan kulit mereka.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="row gy-4">
+
+<div class="col-lg-6">
+
+<h4 class="footer-logo">
+Salbeauty
+</h4>
+
+<p class="footer-text">
+
+Platform rekomendasi skincare dan kosmetik untuk membantu menemukan produk terbaik sesuai kebutuhan kulitmu.
+
+</p>
+
+<div class="footer-chips">
+<span class="footer-chip"><i class="bi bi-sparkles"></i> Beauty Match</span>
+<span class="footer-chip"><i class="bi bi-stars"></i> Personal Insight</span>
+<span class="footer-chip"><i class="bi bi-gem"></i> Top Picks</span>
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="footer-menu">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+<a href="recommendation.html">
+Rekomendasi
+</a>
+
+<a href="etl.html">
+ETL
+</a>
+
+<a href="evaluation.html">
+Evaluasi
+</a>
+
+</div>
+
+<div class="footer-note">
+
+<p class="footer-note-title">
+Temukan rekomendasi yang lebih tepat, lebih cepat, dan lebih sesuai untuk rutinitas beauty kamu.
+</p>
+
+<div class="footer-social">
+<span><i class="bi bi-instagram"></i></span>
+<span><i class="bi bi-tiktok"></i></span>
+<span><i class="bi bi-heart-fill"></i></span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="footer-bottom">
+
+&copy; 2026 Salbeauty. All rights reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+
+<!-- ========================================= -->
+<!-- SCRIPTS -->
+<!-- ========================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<script src="assets/js/csv-loader.js"></script>
+
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>
+

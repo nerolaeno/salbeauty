@@ -1,0 +1,225 @@
+/* ========================================= */
+/* ETL HEADER */
+/* ========================================= */
+
+.etl-header{
+
+    padding-top:140px;
+    padding-bottom:80px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #fff5f7 40%,
+        #ffe8ee 100%
+    );
+
+}
+
+.etl-title{
+
+    font-size:3rem;
+    font-weight:700;
+    margin-bottom:20px;
+    color:#2B2B2B;
+
+}
+
+.etl-description{
+
+    max-width:800px;
+    margin:auto;
+
+    color:#666;
+    line-height:1.8;
+
+}
+
+/* ========================================= */
+/* PIPELINE CARD */
+/* ========================================= */
+
+.pipeline-card{
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 10px 35px rgba(0,0,0,0.05);
+
+    transition:0.3s;
+
+    height:100%;
+
+}
+
+.pipeline-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.pipeline-icon{
+
+    width:90px;
+    height:90px;
+
+    margin:auto;
+    margin-bottom:24px;
+
+    border-radius:24px;
+
+    background:#ffe5ee;
+
+    color:#F06292;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:36px;
+
+}
+
+.pipeline-card h4{
+
+    font-size:1.4rem;
+    font-weight:600;
+    margin-bottom:16px;
+
+}
+
+.pipeline-card p{
+
+    color:#777;
+    line-height:1.8;
+
+}
+
+/* ========================================= */
+/* WORKFLOW */
+/* ========================================= */
+
+.workflow-wrapper{
+
+    max-width:900px;
+    margin:auto;
+
+}
+
+.workflow-step{
+
+    display:flex;
+    align-items:flex-start;
+    gap:24px;
+
+    margin-bottom:40px;
+
+}
+
+.workflow-number{
+
+    min-width:65px;
+    height:65px;
+
+    border-radius:18px;
+
+    background:#F06292;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:24px;
+    font-weight:700;
+
+}
+
+.workflow-content{
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,0.05);
+
+    width:100%;
+
+}
+
+.workflow-content h5{
+
+    font-size:1.2rem;
+    font-weight:600;
+    margin-bottom:14px;
+
+}
+
+.workflow-content p{
+
+    color:#777;
+    line-height:1.8;
+    margin:0;
+
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media(max-width:992px){
+
+    .etl-title{
+
+        font-size:2.3rem;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .etl-header{
+
+        text-align:center;
+
+    }
+
+    .etl-title{
+
+        font-size:2rem;
+
+    }
+
+    .workflow-step{
+
+        flex-direction:column;
+        align-items:center;
+
+    }
+
+    .workflow-content{
+
+        text-align:center;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .etl-title{
+
+        font-size:1.7rem;
+
+    }
+
+}
