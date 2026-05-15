@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ETL Process - Salbeauty</title>
+<title>Cara Kami Merekomendasikan - Salbeauty</title>
 
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -73,13 +73,13 @@ Rekomendasi
 
 <li class="nav-item">
 <a class="nav-link active" href="etl.html">
-ETL
+Cara Kami Merekomendasikan
 </a>
 </li>
 
 <li class="nav-item">
 <a class="nav-link" href="evaluation.html">
-Evaluasi
+Insight Beauty
 </a>
 </li>
 
@@ -101,13 +101,13 @@ Evaluasi
 
 <h1 class="etl-title">
 
-ETL Process Business Intelligence
+Cara Kami Merekomendasikan
 
 </h1>
 
 <p class="etl-description">
 
-Tahapan pengolahan data kosmetik mulai dari extraction, transformation, hingga loading untuk kebutuhan analytics dan DSS recommendation system.
+Lihat bagaimana kami mengubah data produk menjadi rekomendasi yang relevan, mudah dipahami, dan membantu kamu memilih dengan percaya diri.
 
 </p>
 
@@ -125,7 +125,7 @@ Tahapan pengolahan data kosmetik mulai dari extraction, transformation, hingga l
 
 <div class="row g-4 justify-content-center">
 
-<!-- EXTRACT -->
+<!-- STEP 1 -->
 <div class="col-lg-3 col-md-6">
 
 <div class="pipeline-card">
@@ -135,12 +135,12 @@ Tahapan pengolahan data kosmetik mulai dari extraction, transformation, hingga l
 </div>
 
 <h4>
-Extract
+Pahami Kebutuhanmu
 </h4>
 
 <p>
 
-Mengambil dataset kosmetik mentah yang berisi informasi produk, rating, harga, brand, ingredient, dan review.
+Kami membaca preferensi penting seperti jenis kulit, kategori produk, rentang harga, dan rating pengguna.
 
 </p>
 
@@ -148,7 +148,7 @@ Mengambil dataset kosmetik mentah yang berisi informasi produk, rating, harga, b
 
 </div>
 
-<!-- TRANSFORM -->
+<!-- STEP 2 -->
 <div class="col-lg-3 col-md-6">
 
 <div class="pipeline-card">
@@ -158,12 +158,12 @@ Mengambil dataset kosmetik mentah yang berisi informasi produk, rating, harga, b
 </div>
 
 <h4>
-Transform
+Cocokkan Produk Terbaik
 </h4>
 
 <p>
 
-Melakukan cleaning data, normalisasi nilai, kategorisasi harga, dan perhitungan DSS score.
+Sistem mencocokkan produk berdasarkan kualitas formula, ulasan, dan kecocokan kebutuhan kulitmu.
 
 </p>
 
@@ -171,7 +171,7 @@ Melakukan cleaning data, normalisasi nilai, kategorisasi harga, dan perhitungan 
 
 </div>
 
-<!-- ANALYTICS -->
+<!-- STEP 3 -->
 <div class="col-lg-3 col-md-6">
 
 <div class="pipeline-card">
@@ -181,12 +181,12 @@ Melakukan cleaning data, normalisasi nilai, kategorisasi harga, dan perhitungan 
 </div>
 
 <h4>
-Analytics
+Tampilkan Rekomendasi Cerdas
 </h4>
 
 <p>
 
-Visualisasi Business Intelligence menggunakan dashboard analytics dan DSS recommendation.
+Hasil ditampilkan sebagai daftar rekomendasi yang ringkas, terurut, dan siap dibandingkan sebelum kamu memilih.
 
 </p>
 
@@ -201,7 +201,7 @@ Visualisasi Business Intelligence menggunakan dashboard analytics dan DSS recomm
 </section>
 
 <!-- ========================================= -->
-<!-- ETL DETAIL -->
+<!-- DETAIL CARA KERJA -->
 <!-- ========================================= -->
 
 <section class="pb-5">
@@ -211,12 +211,12 @@ Visualisasi Business Intelligence menggunakan dashboard analytics dan DSS recomm
 <div class="section-title-wrapper">
 
 <h2 class="section-title">
-ETL Workflow
+Cara Kerja Secara Detail
 </h2>
 
 <p class="section-subtitle">
 
-Implementasi ETL berdasarkan notebook Google Colab dan proses Business Intelligence.
+Fondasi Business Intelligence tetap digunakan di balik layar agar hasil rekomendasi konsisten dan terpercaya.
 
 </p>
 
@@ -233,12 +233,12 @@ Implementasi ETL berdasarkan notebook Google Colab dan proses Business Intellige
 <div class="workflow-content">
 
 <h5>
-Data Extraction
+Kumpulkan Sinyal Produk
 </h5>
 
 <p>
 
-Dataset kosmetik diambil dari sumber data mentah kemudian disimpan dalam format CSV untuk kebutuhan analisis.
+Kami mengumpulkan sinyal penting dari data produk seperti kategori, brand, rating, harga, dan ingredient utama.
 
 </p>
 
@@ -255,12 +255,12 @@ Dataset kosmetik diambil dari sumber data mentah kemudian disimpan dalam format 
 <div class="workflow-content">
 
 <h5>
-Data Cleaning
+Bersihkan & Standarkan
 </h5>
 
 <p>
 
-Menghapus missing values, memperbaiki format data, dan menyesuaikan struktur dataset.
+Data dirapikan agar format konsisten sehingga perbandingan antar produk jadi adil dan akurat.
 
 </p>
 
@@ -277,12 +277,12 @@ Menghapus missing values, memperbaiki format data, dan menyesuaikan struktur dat
 <div class="workflow-content">
 
 <h5>
-Feature Engineering
+Bangun Faktor Keputusan
 </h5>
 
 <p>
 
-Membuat kategori harga, score rating, review score, dan normalisasi data DSS.
+Kami membentuk faktor keputusan seperti quality score, value score, dan kecocokan tipe kulit.
 
 </p>
 
@@ -299,13 +299,12 @@ Membuat kategori harga, score rating, review score, dan normalisasi data DSS.
 <div class="workflow-content">
 
 <h5>
-DSS Calculation
+Tentukan Prioritas Rekomendasi
 </h5>
 
 <p>
 
-Menghitung DSS score berdasarkan bobot:
-Rating 50%, Harga 30%, dan Review 20%.
+Sistem memberi prioritas pada produk dengan kombinasi terbaik dari rating, nilai harga, dan kesesuaian kebutuhan.
 
 </p>
 
@@ -322,12 +321,12 @@ Rating 50%, Harga 30%, dan Review 20%.
 <div class="workflow-content">
 
 <h5>
-Visualization
+Sajikan Hasil yang Mudah Dipahami
 </h5>
 
 <p>
 
-Data hasil transformasi divisualisasikan dalam dashboard Business Intelligence dan recommendation system.
+Rekomendasi ditampilkan dalam format modern dan mudah dibaca agar kamu bisa memutuskan lebih cepat.
 
 </p>
 
@@ -359,9 +358,15 @@ Salbeauty
 
 <p class="footer-text">
 
-ETL dan Business Intelligence untuk recommendation system kosmetik berbasis DSS.
+Platform rekomendasi skincare dan kosmetik untuk membantu menemukan produk terbaik sesuai kebutuhan kulitmu.
 
 </p>
+
+<div class="footer-chips">
+<span class="footer-chip"><i class="bi bi-sparkles"></i> Beauty Match</span>
+<span class="footer-chip"><i class="bi bi-stars"></i> Personal Insight</span>
+<span class="footer-chip"><i class="bi bi-gem"></i> Top Picks</span>
+</div>
 
 </div>
 
@@ -382,12 +387,26 @@ Rekomendasi
 </a>
 
 <a href="etl.html">
-ETL
+Cara Kami Merekomendasikan
 </a>
 
 <a href="evaluation.html">
-Evaluasi
+Insight Beauty
 </a>
+
+</div>
+
+<div class="footer-note">
+
+<p class="footer-note-title">
+Temukan rekomendasi yang lebih tepat, lebih cepat, dan lebih sesuai untuk rutinitas beauty kamu.
+</p>
+
+<div class="footer-social">
+<span><i class="bi bi-instagram"></i></span>
+<span><i class="bi bi-tiktok"></i></span>
+<span><i class="bi bi-heart-fill"></i></span>
+</div>
 
 </div>
 
@@ -399,13 +418,15 @@ Evaluasi
 
 <div class="footer-bottom">
 
-© 2026 Salbeauty Intelligence Platform
+&copy; 2026 Salbeauty. All rights reserved.
 
 </div>
 
 </div>
 
 </footer>
+
+
 
 </div>
 
@@ -415,3 +436,5 @@ Evaluasi
 </body>
 
 </html>
+
+

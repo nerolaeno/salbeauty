@@ -379,6 +379,51 @@ body{
 
 }
 
+/* ========================================= */
+/* RECOMMENDATION LIST TABLE */
+/* ========================================= */
+
+.recommendation-list-card{
+    background:#fff;
+    border:1px solid #f3dce5;
+    border-radius:22px;
+    box-shadow:0 14px 34px rgba(0,0,0,0.05);
+    overflow:hidden;
+}
+
+.recommendation-list-table{
+    margin:0;
+}
+
+.recommendation-list-table thead th{
+    background:#fff5f8;
+    color:#7a5268;
+    font-size:0.86rem;
+    font-weight:700;
+    border-bottom:1px solid #f4d9e4;
+    padding:14px 16px;
+    white-space:nowrap;
+}
+
+.recommendation-list-table tbody td{
+    padding:14px 16px;
+    border-color:#f7e8ef;
+    vertical-align:middle;
+}
+
+.recommendation-list-table tbody tr{
+    transition:background 0.25s ease;
+}
+
+.recommendation-list-table tbody tr:hover{
+    background:#fff9fc;
+}
+
+.product-name-cell{
+    font-weight:600;
+    color:#312632;
+}
+
 .overview-beauty-icon{
 
     font-size:34px;

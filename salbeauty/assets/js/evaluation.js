@@ -7,6 +7,7 @@ const evaluationApp = Vue.createApp({
             products:[],
 
             avgDSS:0,
+            avgMatchLabel:'-',
 
             topCategory:'-',
 
@@ -40,12 +41,21 @@ const evaluationApp = Vue.createApp({
 
                 )
 
-            this.avgDSS =
+            const avgScore =
+                totalDSS /
+                this.products.length
 
-                (
-                    totalDSS /
-                    this.products.length
-                ).toFixed(3)
+            this.avgDSS = (avgScore * 100).toFixed(1)
+
+            if(avgScore >= 0.85){
+                this.avgMatchLabel = 'Sangat Cocok'
+            } else if(avgScore >= 0.7){
+                this.avgMatchLabel = 'Cocok'
+            } else if(avgScore >= 0.55){
+                this.avgMatchLabel = 'Cukup Cocok'
+            } else {
+                this.avgMatchLabel = 'Perlu Penyesuaian'
+            }
 
             // =====================================
             // TOP CATEGORY

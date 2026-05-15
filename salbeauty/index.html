@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
 
@@ -70,13 +70,13 @@ Rekomendasi
 
 <li class="nav-item">
 <a class="nav-link" href="etl.html">
-ETL
+How We Recommend
 </a>
 </li>
 
 <li class="nav-item">
 <a class="nav-link" href="evaluation.html">
-Evaluasi
+Beauty Insights
 </a>
 </li>
 
@@ -254,60 +254,31 @@ Temukan produk kosmetik terbaik dengan rating tinggi dan paling sesuai untuk keb
 
 </div>
 
-<div class="row g-4">
-
-<div
-class="col-lg-4 col-md-6"
-v-for="product in topProducts"
-:key="product.product_name"
->
-
-<div class="product-card">
-
-<img
-:src="product.image_link"
-class="product-image"
->
-
-<div class="product-content">
-
-<div class="product-brand">
-
-{{ product.brand }}
-
+<div class="recommendation-list-card">
+<div class="table-responsive">
+<table class="table recommendation-list-table align-middle mb-0">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Product</th>
+<th>Brand</th>
+<th>Rating</th>
+<th>Price</th>
+<th>Beauty Match</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="(product, index) in topProducts" :key="product.product_name">
+<td><span class="rank-pill">#{{ index + 1 }}</span></td>
+<td class="product-name-cell">{{ product.product_name }}</td>
+<td class="text-capitalize">{{ product.brand }}</td>
+<td>⭐ {{ product.rating }}</td>
+<td>${{ product.price_usd }}</td>
+<td><span class="match-pill">{{ (Number(product.dss_score) * 100).toFixed(1) }}%</span></td>
+</tr>
+</tbody>
+</table>
 </div>
-
-<h5 class="product-title">
-
-{{ product.product_name }}
-
-</h5>
-
-<div class="product-meta">
-
-<span>
-⭐ {{ product.rating }}
-</span>
-
-<span>
-💰 ${{ product.price_usd }}
-</span>
-
-</div>
-
-<div class="dss-score">
-
-Beauty Match:
-{{ (Number(product.dss_score) * 100).toFixed(1) }}%
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -553,11 +524,11 @@ Rekomendasi
 </a>
 
 <a href="etl.html">
-ETL
+How We Recommend
 </a>
 
 <a href="evaluation.html">
-Evaluasi
+Beauty Insights
 </a>
 
 </div>
@@ -610,4 +581,5 @@ Temukan rekomendasi yang lebih tepat, lebih cepat, dan lebih sesuai untuk rutini
 
 </body>
 </html>
+
 

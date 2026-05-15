@@ -1,170 +1,302 @@
-/* ========================================= */
-/* HEADER */
-/* ========================================= */
-
-.recommendation-header{
-
-    padding-top:140px;
-    padding-bottom:70px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #fff5f7 40%,
-        #ffe8ee 100%
-    );
-
+:root{
+    --beauty-main:#ef5c96;
+    --beauty-dark:#2f2430;
 }
 
+body{
+    font-family:"Plus Jakarta Sans","Poppins",sans-serif;
+    background:radial-gradient(circle at 85% 0%, #ffdbe8 0%, #fff8fb 35%, #ffffff 100%);
+}
+
+.recommendation-header{
+    padding-top:140px;
+    padding-bottom:75px;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(130deg,#fff9fc 0%,#ffeef4 65%,#ffe3ed 100%);
+}
+
+.sparkle{
+    position:absolute;
+    width:14px;
+    height:14px;
+    background:rgba(255,255,255,0.95);
+    border-radius:50%;
+    box-shadow:0 0 20px rgba(255,255,255,0.9);
+    animation:floatSparkle 6s ease-in-out infinite;
+}
+
+.sparkle-1{top:22%;left:6%;}
+.sparkle-2{top:38%;right:14%;animation-delay:1.2s;}
+.sparkle-3{bottom:14%;left:46%;animation-delay:2s;}
+
 .recommendation-title{
-
-    font-size:3rem;
-    font-weight:700;
+    font-size:3.1rem;
+    font-weight:800;
     margin-bottom:18px;
-    color:#2B2B2B;
-
+    letter-spacing:-0.02em;
+    color:var(--beauty-dark);
 }
 
 .recommendation-description{
-
-    color:#666;
+    color:#625868;
     line-height:1.8;
-    max-width:700px;
-
+    max-width:680px;
+    font-size:1.05rem;
 }
 
 .recommendation-score-card{
-
-    padding:35px;
+    padding:34px 30px;
     text-align:center;
-
+    background:linear-gradient(145deg,rgba(255,255,255,0.86) 0%,rgba(255,239,246,0.8) 100%);
+    border:1px solid rgba(255,255,255,0.8);
 }
 
-.recommendation-score-card h5{
+.recommendation-score-card h5{color:#75687a;font-weight:700;}
+.recommendation-score-card h2{font-size:2.6rem;color:var(--beauty-main);font-weight:800;margin-bottom:6px;}
+.recommendation-card-subtext{margin:0;color:#7f6f84;font-size:0.92rem;}
 
-    color:#777;
-    margin-bottom:10px;
-
+.filter-shell{
+    max-width:1120px;
+    margin: 0 auto;
+    transform:translateY(-26px);
+    position:relative;
+    z-index:25;
 }
-
-.recommendation-score-card h2{
-
-    font-size:3rem;
-    color:#F06292;
-    font-weight:700;
-
-}
-
-/* ========================================= */
-/* FILTER */
-/* ========================================= */
 
 .filter-card{
+    background:rgba(255,255,255,0.96);
+    border-radius:22px;
+    padding:18px 18px 16px;
+    box-shadow:0 14px 30px rgba(236,95,149,0.12);
+    border:1px solid #f5d9e6;
+}
 
-    background:white;
+.filter-head{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    margin-bottom:10px;
+}
 
-    border-radius:24px;
+.filter-head h5{
+    margin:0;
+    font-size:0.96rem;
+    font-weight:700;
+    color:#6e4f63;
+}
 
-    padding:30px;
+.filter-reset{
+    border:1px solid #f3bfd5;
+    background:#fff5fa;
+    color:#bd4f7f;
+    border-radius:14px;
+    padding:0 12px;
+    min-height:52px;
+    font-size:0.84rem;
+    font-weight:700;
+    transition:all 0.24s ease;
+}
 
-    box-shadow:0 10px 35px rgba(0,0,0,0.05);
-
-    margin-top:-30px;
-    position:relative;
-    z-index:20;
-
+.filter-reset:hover{
+    background:#ffe9f3;
+    border-color:#eaa8c4;
+    color:#ab3f70;
 }
 
 .custom-input{
-
-    border-radius:14px;
-    padding:14px;
-
-    border:1px solid #f3dce3;
-
-    font-size:14px;
-
+    border-radius:15px;
+    padding:0 14px;
+    border:1px solid #efcadb;
+    font-size:0.95rem;
+    color:#5c4f60;
+    min-height:52px;
+    line-height:52px;
+    background:#fff;
+    transition:border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
 .custom-input:focus{
-
-    border-color:#F06292;
-    box-shadow:none;
-
+    border-color:var(--beauty-main);
+    box-shadow:0 0 0 0.2rem rgba(239,92,150,0.13);
 }
 
-/* ========================================= */
-/* PRODUCT */
-/* ========================================= */
+.filter-grid .col-lg-1{
+    min-width:120px;
+}
 
-.product-category{
+.section-headline h3{
+    font-size:1.45rem;
+    font-weight:800;
+    color:#352737;
+}
 
+.section-headline p{color:#74677a;}
+
+.recommendation-table-wrap{
+    border:1px solid #ffddea;
+    border-radius:22px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 16px 40px rgba(236,90,146,0.11);
+}
+
+.recommendation-table thead th{
+    background:#fff3f8;
+    color:#7a4f67;
+    font-weight:700;
+    font-size:0.86rem;
+    border-bottom:1px solid #ffddea;
+    padding:14px 14px;
+    white-space:nowrap;
+}
+
+.recommendation-table tbody td{
+    padding:14px 14px;
+    border-color:#f8e7ef;
+    vertical-align:top;
+}
+
+.recommendation-row{
+    transition:all 0.26s ease;
+}
+
+.recommendation-row:hover{
+    background:#fff7fb;
+    box-shadow:inset 0 0 0 1px #ffd6e7;
+}
+
+.rank-pill{
     display:inline-block;
-
-    background:#ffe5ee;
-
-    color:#F06292;
-
-    padding:8px 14px;
-
-    border-radius:30px;
-
-    font-size:12px;
-    font-weight:600;
-
-    margin-bottom:14px;
-
+    min-width:48px;
+    text-align:center;
+    border-radius:999px;
+    background:#ffe8f2;
+    color:#bc4d7d;
+    font-weight:700;
+    padding:6px 10px;
 }
 
-/* ========================================= */
-/* RESPONSIVE */
-/* ========================================= */
+.product-info h6{
+    margin:0 0 6px;
+    font-size:0.98rem;
+    font-weight:700;
+    color:#352737;
+    line-height:1.4;
+}
+
+.ingredient-line{
+    margin:0;
+    color:#c3497f;
+    font-size:0.84rem;
+    font-weight:600;
+}
+
+.desc-line{
+    margin:4px 0 8px;
+    color:#7b6d7f;
+    font-size:0.83rem;
+}
+
+.cell-strong{
+    font-weight:600;
+    color:#4e3c50;
+    text-transform:capitalize;
+}
+
+.beauty-badge{
+    display:inline-flex;
+    align-items:center;
+    padding:5px 10px;
+    border-radius:999px;
+    font-size:0.74rem;
+    font-weight:700;
+}
+
+.badge-best{background:#ffe9f2;color:#c3457d;}
+.badge-trending{background:#fff1e6;color:#d4743b;}
+.badge-loved{background:#ffeaf4;color:#b94c84;}
+.badge-top{background:#fff7df;color:#b6871d;}
+
+.match-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#ffeaf3;
+    color:#bb4d7c;
+    border-radius:999px;
+    padding:6px 10px;
+    font-weight:700;
+    font-size:0.82rem;
+}
+
+.rating-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    white-space:nowrap;
+    font-weight:700;
+    color:#3f3143;
+}
+
+.pagination-wrap{
+    margin-top:26px;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+}
+
+.pagination-btn{
+    border:1px solid #f4c7d9;
+    min-width:40px;
+    height:40px;
+    border-radius:11px;
+    background:#fff;
+    color:#915173;
+    font-weight:700;
+}
+
+.pagination-btn:hover:not(:disabled),.pagination-btn.active{
+    background:#ef5c96;
+    border-color:#ef5c96;
+    color:#fff;
+}
+
+.pagination-btn:disabled{opacity:0.4;}
+
+.page-indicator{
+    margin-top:8px;
+    text-align:center;
+    color:#8f7083;
+    font-size:0.82rem;
+    font-weight:600;
+}
+
+.empty-state{
+    text-align:center;
+    color:#8b7385;
+    padding:28px;
+}
+
+@keyframes floatSparkle{
+    0%,100%{transform:translateY(0);opacity:0.8;}
+    50%{transform:translateY(-11px);opacity:1;}
+}
 
 @media(max-width:992px){
-
-    .recommendation-title{
-
-        font-size:2.3rem;
-
-    }
-
+    .recommendation-title{font-size:2.35rem;}
+    .recommendation-table-wrap{overflow:auto;}
+    .recommendation-table{min-width:980px;}
 }
 
 @media(max-width:768px){
-
-    .recommendation-header{
-
-        text-align:center;
-
-    }
-
-    .recommendation-title{
-
-        font-size:2rem;
-
-    }
-
+    .recommendation-header{text-align:center;}
+    .recommendation-title{font-size:2rem;}
     .filter-card{
-
-        margin-top:0;
-
+        border-radius:18px;
+        padding:16px;
     }
-
-}
-
-@media(max-width:576px){
-
-    .recommendation-title{
-
-        font-size:1.7rem;
-
-    }
-
-    .recommendation-score-card h2{
-
-        font-size:2.2rem;
-
-    }
-
+    .filter-shell{transform:none;}
+    .filter-head{align-items:flex-start;gap:8px;flex-direction:column;}
+    .filter-reset{min-height:48px;}
 }
