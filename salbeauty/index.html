@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
 
@@ -70,13 +70,13 @@ Rekomendasi
 
 <li class="nav-item">
 <a class="nav-link" href="etl.html">
-How We Recommend
+Cara Rekomendasi
 </a>
 </li>
 
 <li class="nav-item">
 <a class="nav-link" href="evaluation.html">
-Beauty Insights
+Insight Beauty
 </a>
 </li>
 
@@ -149,7 +149,7 @@ Lihat Rekomendasi
 </div>
 
 <h3>
-15.000+ Produk Beauty
+15.000 Produk Beauty
 </h3>
 
 <p>
@@ -169,7 +169,7 @@ Koleksi beauty terkurasi
 </div>
 
 <h3>
-40+ Brand Favorit
+40 Brand Favorit
 </h3>
 
 <p>
@@ -272,8 +272,8 @@ Temukan produk kosmetik terbaik dengan rating tinggi dan paling sesuai untuk keb
 <td><span class="rank-pill">#{{ index + 1 }}</span></td>
 <td class="product-name-cell">{{ product.product_name }}</td>
 <td class="text-capitalize">{{ product.brand }}</td>
-<td>⭐ {{ product.rating }}</td>
-<td>${{ product.price_usd }}</td>
+<td><i class="bi bi-star-fill"></i> {{ formatRating(product.rating) }}</td>
+<td>{{ formatRupiah(product.price_usd) }}</td>
 <td><span class="match-pill">{{ (Number(product.dss_score) * 100).toFixed(1) }}%</span></td>
 </tr>
 </tbody>
@@ -296,7 +296,7 @@ Temukan produk kosmetik terbaik dengan rating tinggi dan paling sesuai untuk keb
 <div class="section-title-wrapper">
 
 <h2 class="section-title">
-Beauty Insights
+Insight Beauty
 </h2>
 
 <p class="section-subtitle">
@@ -524,11 +524,15 @@ Rekomendasi
 </a>
 
 <a href="etl.html">
-How We Recommend
+Cara Rekomendasi
 </a>
 
 <a href="evaluation.html">
-Beauty Insights
+Insight Beauty
+</a>
+
+<a href="admin/login.html">
+Admin
 </a>
 
 </div>
@@ -581,5 +585,10 @@ Temukan rekomendasi yang lebih tepat, lebih cepat, dan lebih sesuai untuk rutini
 
 </body>
 </html>
+
+
+
+
+
 
 

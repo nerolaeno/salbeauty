@@ -1167,3 +1167,53 @@ canvas{
     }
 
 }
+
+/* ========================================= */
+/* POLISH PASS */
+/* ========================================= */
+
+.dashboard-description{
+    max-width:640px;
+}
+
+.kpi-card h3{
+    font-size:1.26rem;
+    margin-bottom:8px;
+}
+
+.kpi-card p{
+    line-height:1.72;
+}
+
+.chart-title{
+    letter-spacing:-0.01em;
+}
+
+.chart-card,
+.skin-recommendation-panel,
+.feeling-card{
+    border:1px solid rgba(240,98,146,0.12);
+}
+
+.chart-description{
+    line-height:1.72;
+}
+
+.compare-meta span{
+    white-space:nowrap;
+}
+
+@media(max-width:992px){
+    .dashboard-kpi-section .row.g-4{
+        row-gap:1rem!important;
+    }
+}
+
+@media(max-width:576px){
+    .kpi-card h3{
+        font-size:1.15rem;
+    }
+    .chart-card{
+        border-radius:22px;
+    }
+}

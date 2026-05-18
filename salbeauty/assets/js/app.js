@@ -24,18 +24,23 @@ const app = Vue.createApp({
 
     methods:{
 
-        calculateAnalytics(){
+        formatRupiah(usd){
+            const idr = Number(usd || 0) * 16000
+            return new Intl.NumberFormat('id-ID', {
+                style:'currency',
+                currency:'IDR',
+                maximumFractionDigits:0
+            }).format(idr)
+        },
 
-            // =====================================
-            // TOTAL PRODUK
-            // =====================================
+        formatRating(value){
+            return Number(value || 0).toFixed(1)
+        },
+
+        calculateAnalytics(){
 
             this.totalProducts =
             this.products.length
-
-            // =====================================
-            // TOTAL BRAND
-            // =====================================
 
             const brands =
             [...new Set(
@@ -47,10 +52,6 @@ const app = Vue.createApp({
             this.totalBrand =
             brands.length
 
-            // =====================================
-            // TOTAL CATEGORY
-            // =====================================
-
             const categories =
             [...new Set(
                 this.products.map(
@@ -61,69 +62,33 @@ const app = Vue.createApp({
             this.totalCategory =
             categories.length
 
-            // =====================================
-            // AVG RATING
-            // =====================================
-
             const ratingTotal =
             this.products.reduce(
-
-                (sum,item)=>
-
-                    sum + Number(item.rating || 0),
-
+                (sum,item)=> sum + Number(item.rating || 0),
                 0
-
             )
 
             this.avgRating =
-
                 (
                     ratingTotal /
                     this.products.length
-
                 ).toFixed(1)
-
-            // =====================================
-            // AVG DSS
-            // =====================================
 
             const dssTotal =
             this.products.reduce(
-
-                (sum,item)=>
-
-                    sum + Number(item.dss_score || 0),
-
+                (sum,item)=> sum + Number(item.dss_score || 0),
                 0
-
             )
 
             this.avgDSS =
-
                 (
                     dssTotal /
                     this.products.length
-
                 ).toFixed(3)
 
-            // =====================================
-            // TOP PRODUCT DSS
-            // =====================================
-
             this.topProducts =
-
                 [...this.products]
-
-                .sort(
-
-                    (a,b)=>
-
-                        Number(b.dss_score) -
-                        Number(a.dss_score)
-
-                )
-
+                .sort((a,b)=> Number(b.dss_score) - Number(a.dss_score))
                 .slice(0,6)
 
         }

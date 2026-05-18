@@ -12,8 +12,18 @@ function chartToNumber(value){
     return Number.isFinite(parsed) ? parsed : 0
 }
 
+const USD_TO_IDR = 16000
+
+function chartUsdToIdr(value){
+    return chartToNumber(value) * USD_TO_IDR
+}
+
 function chartFormatPrice(value){
-    return `$${chartToNumber(value).toFixed(2)}`
+    return new Intl.NumberFormat('id-ID', {
+        style:'currency',
+        currency:'IDR',
+        maximumFractionDigits:0
+    }).format(chartToNumber(value))
 }
 
 function createCommonOptions(extra = {}){
@@ -105,7 +115,7 @@ function buildTopBeautyConfig(data){
                                 `Beauty Match: ${Math.round(chartToNumber(item.dss_score) * 100)}%`,
                                 `Brand: ${item.brand}`,
                                 `Rating: ${chartToNumber(item.rating).toFixed(1)}`,
-                                `Price: ${chartFormatPrice(item.price_usd)}`,
+                                `Price: ${chartFormatPrice(chartUsdToIdr(item.price_usd))}`,
                                 `Skin type: ${item.skin_type}`
                             ]
                         }
@@ -252,12 +262,12 @@ function buildBrandConfig(data){
 }
 
 function buildValueConfig(data){
-    const minPrice = Math.min(...data.map(item => chartToNumber(item.price_usd)))
-    const maxPrice = Math.max(...data.map(item => chartToNumber(item.price_usd)))
+    const minPrice = Math.min(...data.map(item => chartUsdToIdr(item.price_usd)))
+    const maxPrice = Math.max(...data.map(item => chartUsdToIdr(item.price_usd)))
 
     const ranked = [...data]
         .map(item => {
-            const price = chartToNumber(item.price_usd)
+            const price = chartUsdToIdr(item.price_usd)
             const rating = chartToNumber(item.rating)
             const dss = chartToNumber(item.dss_score)
             const priceEfficiency = 1 - ((price - minPrice) / (maxPrice - minPrice || 1))
@@ -413,11 +423,11 @@ function buildIngredientConfig(data){
 }
 
 function buildPriceQualityConfig(data){
-    const minPrice = Math.min(...data.map(item => chartToNumber(item.price_usd)))
-    const maxPrice = Math.max(...data.map(item => chartToNumber(item.price_usd)))
+    const minPrice = Math.min(...data.map(item => chartUsdToIdr(item.price_usd)))
+    const maxPrice = Math.max(...data.map(item => chartUsdToIdr(item.price_usd)))
 
     const points = data.map(item => {
-        const price = chartToNumber(item.price_usd)
+        const price = chartUsdToIdr(item.price_usd)
         const rating = chartToNumber(item.rating)
         const dss = chartToNumber(item.dss_score)
         return {
@@ -449,7 +459,7 @@ function buildPriceQualityConfig(data){
             scales:{
                 x:{
                     grid:{ color:'rgba(240,98,146,0.08)' },
-                    ticks:{ color:'#7b6c74', callback:value => `$${value}` }
+                    ticks:{ color:'#7b6c74', callback:value => chartFormatPrice(value) }
                 },
                 y:{ grid:{ color:'rgba(240,98,146,0.08)' }, ticks:{ color:'#7b6c74' } }
             },

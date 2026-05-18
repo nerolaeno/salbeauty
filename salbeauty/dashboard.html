@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -74,13 +74,13 @@ Rekomendasi
 
 <li class="nav-item">
 <a class="nav-link" href="etl.html">
-How We Recommend
+Cara Rekomendasi
 </a>
 </li>
 
 <li class="nav-item">
 <a class="nav-link" href="evaluation.html">
-Beauty Insights
+Insight Beauty
 </a>
 </li>
 
@@ -180,7 +180,7 @@ Beauty Match Score
 </div>
 
 <h3>
-15.000+ Beauty Products
+{{ formattedTotalProducts }} Beauty Products
 </h3>
 
 <p>
@@ -200,7 +200,7 @@ Koleksi skincare dan makeup pilihan
 </div>
 
 <h3>
-Beauty Categories
+{{ formattedTotalCategory }} Beauty Categories
 </h3>
 
 <p>
@@ -220,7 +220,7 @@ Beragam kategori produk kecantikan
 </div>
 
 <h3>
-Most Loved Brand
+{{ topBrandTitle }}
 </h3>
 
 <p>
@@ -240,7 +240,7 @@ Brand favorit pengguna minggu ini
 </div>
 
 <h3>
-User Favorite Rating
+{{ avgRating }} User Favorite Rating
 </h3>
 
 <p>
@@ -387,7 +387,7 @@ v-for="product in activeSkinRecommendations"
 </span>
 
 <span>
-<i class="bi bi-currency-dollar"></i>
+<i class="bi bi-cash-coin"></i>
 {{ formatPrice(product.price) }}
 </span>
 
@@ -814,11 +814,15 @@ Rekomendasi
 </a>
 
 <a href="etl.html">
-How We Recommend
+Cara Rekomendasi
 </a>
 
 <a href="evaluation.html">
-Beauty Insights
+Insight Beauty
+</a>
+
+<a href="admin/login.html">
+Admin
 </a>
 
 </div>
@@ -889,5 +893,9 @@ Temukan rekomendasi yang lebih tepat, lebih cepat, dan lebih sesuai untuk rutini
 </body>
 
 </html>
+
+
+
+
 
 

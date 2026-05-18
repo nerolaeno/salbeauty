@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -63,7 +63,7 @@ data-bs-target="#navbarNav">
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="etl.html">Cara Kami Merekomendasikan</a>
+<a class="nav-link" href="etl.html">Cara Rekomendasi</a>
 </li>
 
 <li class="nav-item">
@@ -241,8 +241,8 @@ Produk teratas berdasarkan kombinasi rating tinggi, value terbaik, dan kecocokan
 <td class="product-name-cell">{{ product.product_name }}</td>
 <td class="text-capitalize">{{ product.brand }}</td>
 <td>{{ product.category }}</td>
-<td>⭐ {{ product.rating }}</td>
-<td>${{ product.price_usd }}</td>
+<td><i class="bi bi-star-fill"></i> {{ formatRating(product.rating) }}</td>
+<td>{{ formatRupiah(product.price_usd) }}</td>
 <td><span class="match-pill">{{ (Number(product.dss_score) * 100).toFixed(1) }}%</span></td>
 </tr>
 </tbody>
@@ -299,11 +299,15 @@ Rekomendasi
 </a>
 
 <a href="etl.html">
-Cara Kami Merekomendasikan
+Cara Rekomendasi
 </a>
 
 <a href="evaluation.html">
 Insight Beauty
+</a>
+
+<a href="admin/login.html">
+Admin
 </a>
 
 </div>
@@ -359,6 +363,12 @@ Temukan rekomendasi yang lebih tepat, lebih cepat, dan lebih sesuai untuk rutini
 </body>
 
 </html>
+
+
+
+
+
+
 
 
 

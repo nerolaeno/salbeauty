@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelola Produk - Salbeauty Admin</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+<aside class="admin-sidebar" id="adminSidebar"></aside>
+<div class="admin-main">
+<header class="admin-topbar">
+<button class="btn btn-light d-lg-none" id="toggleSidebar"><i class="bi bi-list"></i></button>
+<h1>Kelola Produk</h1>
+</header>
+<section class="panel-card mb-4">
+<div class="row g-3 align-items-end">
+<div class="col-lg-4"><label class="form-label">Search</label><input id="searchInput" class="form-control input-soft" placeholder="Cari nama produk..."></div>
+<div class="col-lg-3"><label class="form-label">Kategori</label><select id="categoryFilter" class="form-select input-soft"><option value="">Semua Kategori</option></select></div>
+<div class="col-lg-3"><label class="form-label">Brand</label><select id="brandFilter" class="form-select input-soft"><option value="">Semua Brand</option></select></div>
+<div class="col-lg-2 d-grid"><button class="btn btn-pink" id="openAddModal"><i class="bi bi-plus-lg me-2"></i>Tambah Produk</button></div>
+</div>
+</section>
+<section class="panel-card">
+<div class="table-responsive">
+<table class="table table-admin align-middle">
+<thead><tr><th>No</th><th>Nama Produk</th><th>Brand</th><th>Kategori</th><th>Skin Type</th><th>Rating</th><th>Harga</th><th>DSS Score</th><th>Action</th></tr></thead>
+<tbody id="productRows"></tbody>
+</table>
+</div>
+<div class="pagination-wrap" id="pagination"></div>
+</section>
+</div>
+</div>
+<div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content modal-soft">
+<div class="modal-header"><h5 class="modal-title">Tambah Produk</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+<form id="productForm">
+<div class="modal-body"><div class="row g-3">
+<div class="col-md-6"><label class="form-label">Nama Produk</label><input class="form-control input-soft" name="name" required></div>
+<div class="col-md-6"><label class="form-label">Brand</label><input class="form-control input-soft" name="brand" required></div>
+<div class="col-md-6"><label class="form-label">Kategori</label><input class="form-control input-soft" name="category" required></div>
+<div class="col-md-6"><label class="form-label">Skin Type</label><input class="form-control input-soft" name="skinType" required></div>
+<div class="col-md-6"><label class="form-label">Harga</label><input type="text" inputmode="decimal" class="form-control input-soft" name="price" placeholder="contoh: 120000" required></div>
+<div class="col-md-6"><label class="form-label">Rating</label><input type="text" inputmode="decimal" class="form-control input-soft" name="rating" placeholder="contoh: 4.5" required></div>
+<div class="col-md-6"><label class="form-label">Ingredient</label><input class="form-control input-soft" name="ingredient" required></div>
+<div class="col-md-6"><label class="form-label">DSS Score</label><input type="text" inputmode="decimal" class="form-control input-soft" name="dss" placeholder="contoh: 0.85" required></div>
+</div></div>
+<div class="modal-footer"><button type="button" class="btn btn-soft" data-bs-dismiss="modal">Cancel</button><button class="btn btn-pink" type="submit">Simpan</button></div>
+</form>
+</div>
+</div>
+</div>
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content modal-soft">
+<div class="modal-body text-center p-4">
+<h5 class="mb-3">Apakah kamu yakin ingin menghapus produk ini?</h5>
+<div class="d-flex justify-content-center gap-2">
+<button id="confirmDelete" class="btn btn-danger">Hapus</button>
+<button class="btn btn-soft" data-bs-dismiss="modal">Batal</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="assets/js/admin-data.js"></script>
+<script src="assets/js/admin-layout.js"></script>
+<script src="assets/js/admin-products.js"></script>
+</body>
+</html>
+
+

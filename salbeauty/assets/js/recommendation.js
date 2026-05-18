@@ -111,12 +111,14 @@ const recommendationApp = Vue.createApp({
     },
 
     methods:{
+        usdToIdr(usd){
+            return Number(usd) * 16000
+        },
         setPage(page){
             if(page < 1 || page > this.totalPages){
                 return
             }
             this.currentPage = page
-            window.scrollTo({ top: 560, behavior:'smooth' })
         },
 
         rankNumber(index){
@@ -124,11 +126,15 @@ const recommendationApp = Vue.createApp({
         },
 
         formatPrice(price){
-            const value = Number(price)
+            const value = this.usdToIdr(price)
             if(Number.isNaN(value)){
-                return '0.00'
+                return 'Rp0'
             }
-            return value.toFixed(2)
+            return new Intl.NumberFormat('id-ID', {
+                style:'currency',
+                currency:'IDR',
+                maximumFractionDigits:0
+            }).format(value)
         },
 
         formatRating(rating){

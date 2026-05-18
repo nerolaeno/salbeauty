@@ -10,12 +10,35 @@ function toNumber(value){
     return Number.isFinite(parsed) ? parsed : 0
 }
 
+const DASHBOARD_USD_TO_IDR = 16000
+
+function usdToIdr(value){
+    return toNumber(value) * DASHBOARD_USD_TO_IDR
+}
+
 function formatPrice(value){
-    return `$${toNumber(value).toFixed(2)}`
+    return new Intl.NumberFormat('id-ID', {
+        style:'currency',
+        currency:'IDR',
+        maximumFractionDigits:0
+    }).format(toNumber(value))
 }
 
 function formatPercent(value){
     return `${Math.round(toNumber(value) * 100)}%`
+}
+
+function formatCompactNumber(value){
+    return new Intl.NumberFormat('id-ID', {
+        notation:'compact',
+        maximumFractionDigits:1
+    }).format(toNumber(value))
+}
+
+function toTitleCase(text){
+    return String(text || '')
+        .toLowerCase()
+        .replace(/\b\w/g, char => char.toUpperCase())
 }
 
 function normalizePrice(price, minPrice, maxPrice){
@@ -93,6 +116,23 @@ const dashboardApp = Vue.createApp({
                 )?.label || 'Skin Type'
             )
 
+        }
+
+        ,
+
+        formattedTotalProducts(){
+            return formatCompactNumber(this.totalProducts)
+        },
+
+        formattedTotalCategory(){
+            return toNumber(this.totalCategory)
+        },
+
+        topBrandTitle(){
+            if(!this.topBrand || this.topBrand === '-'){
+                return 'Most Loved Brand'
+            }
+            return `${toTitleCase(this.topBrand)} Most Loved`
         }
 
     },
@@ -213,7 +253,7 @@ const dashboardApp = Vue.createApp({
             const normalizedProducts =
             this.products.map(item => ({
                 ...item,
-                price:toNumber(item.price_usd),
+                price:usdToIdr(item.price_usd),
                 ratingValue:toNumber(item.rating),
                 reviewCount:toNumber(item.number_of_reviews),
                 dssValue:toNumber(item.dss_score),
