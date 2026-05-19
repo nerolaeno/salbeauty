@@ -3,6 +3,11 @@ const recommendationApp = Vue.createApp({
         return{
             products:[],
             searchQuery:'',
+            draftCategory:'',
+            draftBrand:'',
+            draftSkinType:'',
+            draftRating:'',
+            draftSortOption:'most_recommended',
             selectedCategory:'',
             selectedBrand:'',
             selectedSkinType:'',
@@ -187,11 +192,25 @@ const recommendationApp = Vue.createApp({
 
         resetFilters(){
             this.searchQuery = ''
+            this.draftCategory = ''
+            this.draftBrand = ''
+            this.draftSkinType = ''
+            this.draftRating = ''
+            this.draftSortOption = 'most_recommended'
             this.selectedCategory = ''
             this.selectedBrand = ''
             this.selectedSkinType = ''
             this.selectedRating = ''
             this.sortOption = 'most_recommended'
+            this.currentPage = 1
+        },
+
+        applyFilters(){
+            this.selectedCategory = this.draftCategory
+            this.selectedBrand = this.draftBrand
+            this.selectedSkinType = this.draftSkinType
+            this.selectedRating = this.draftRating
+            this.sortOption = this.draftSortOption
             this.currentPage = 1
         }
     },

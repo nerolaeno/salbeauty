@@ -62,40 +62,46 @@
 <div class="row g-3 filter-grid">
 <div class="col-lg-4 col-md-6 col-12"><input type="text" class="form-control custom-input" placeholder="Cari produk..." v-model="searchQuery"></div>
 <div class="col-lg-4 col-md-6 col-12">
-<select class="form-select custom-input" v-model="selectedSkinType">
+<select class="form-select custom-input" v-model="draftSkinType">
 <option value="">Semua Skin Type</option>
 <option v-for="type in skinTypes" :value="type">{{ type }}</option>
 </select>
 </div>
 <div class="col-lg-4 col-md-6 col-12">
-<select class="form-select custom-input" v-model="selectedCategory">
+<select class="form-select custom-input" v-model="draftCategory">
 <option value="">Semua Kategori</option>
 <option v-for="category in categories" :value="category">{{ category }}</option>
 </select>
 </div>
 <div class="col-lg-4 col-md-6 col-12">
-<select class="form-select custom-input" v-model="selectedBrand">
+<select class="form-select custom-input" v-model="draftBrand">
 <option value="">Semua Brand</option>
 <option v-for="brand in brands" :value="brand">{{ brand }}</option>
 </select>
 </div>
 <div class="col-lg-4 col-md-6 col-12">
-<select class="form-select custom-input" v-model="sortOption">
+<select class="form-select custom-input" v-model="draftSortOption">
 <option value="most_recommended">Most Recommended</option>
 <option value="top_rated">Top Rated</option>
 <option value="best_match">Best Match</option>
 </select>
 </div>
 <div class="col-lg-3 col-md-6 col-12">
-<select class="form-select custom-input" v-model="selectedRating">
+<select class="form-select custom-input" v-model="draftRating">
 <option value="">Semua Rating</option>
 <option value="4.5">Rating 4.5+</option>
 <option value="4.0">Rating 4.0+</option>
 <option value="3.5">Rating 3.5+</option>
 </select>
 </div>
-<div class="col-lg-1 col-md-6 col-12 d-grid">
-<button class="filter-reset" @click="resetFilters">Reset</button>
+<div class="col-lg-5 col-md-12 col-12">
+<div class="filter-actions">
+<button class="btn filter-search-btn" @click="applyFilters">
+<i class="bi bi-search"></i>
+Cari Rekomendasi
+</button>
+<button class="btn filter-reset-btn" @click="resetFilters">Reset Filter</button>
+</div>
 </div>
 </div>
 </div>

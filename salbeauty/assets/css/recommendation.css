@@ -86,19 +86,46 @@ body{
     color:#6e4f63;
 }
 
-.filter-reset{
-    border:1px solid #f3bfd5;
-    background:#fff5fa;
-    color:#bd4f7f;
-    border-radius:14px;
-    padding:0 12px;
-    min-height:52px;
-    font-size:0.84rem;
-    font-weight:700;
-    transition:all 0.24s ease;
+.filter-actions{
+    display:flex;
+    gap:10px;
+    justify-content:flex-start;
 }
 
-.filter-reset:hover{
+.filter-search-btn,
+.filter-reset-btn{
+    min-height:52px;
+    border-radius:15px;
+    padding:0 18px;
+    font-size:0.9rem;
+    font-weight:700;
+    border:1px solid transparent;
+    transition:all 0.24s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+.filter-search-btn{
+    background:var(--beauty-main);
+    color:#fff;
+    box-shadow:0 10px 20px rgba(239,92,150,0.24);
+}
+
+.filter-search-btn:hover{
+    background:#e44f8b;
+    color:#fff;
+    transform:translateY(-1px);
+    box-shadow:0 14px 24px rgba(239,92,150,0.3);
+}
+
+.filter-reset-btn{
+    border-color:#f3bfd5;
+    background:#fff5fa;
+    color:#bd4f7f;
+}
+
+.filter-reset-btn:hover{
     background:#ffe9f3;
     border-color:#eaa8c4;
     color:#ab3f70;
@@ -127,10 +154,6 @@ select.custom-input{
 .custom-input:focus{
     border-color:var(--beauty-main);
     box-shadow:0 0 0 0.2rem rgba(239,92,150,0.13);
-}
-
-.filter-grid .col-lg-1{
-    min-width:120px;
 }
 
 .section-headline h3{
@@ -306,7 +329,15 @@ select.custom-input{
     }
     .filter-shell{transform:none;}
     .filter-head{align-items:flex-start;gap:8px;flex-direction:column;}
-    .filter-reset{min-height:48px;}
+    .filter-actions{
+        flex-direction:column;
+    }
+    .filter-search-btn,
+    .filter-reset-btn{
+        width:100%;
+        justify-content:center;
+        min-height:48px;
+    }
 }
 
 /* ========================================= */
@@ -330,7 +361,8 @@ select.custom-input{
 }
 
 .custom-input:focus,
-.filter-reset:focus-visible,
+.filter-search-btn:focus-visible,
+.filter-reset-btn:focus-visible,
 .pagination-btn:focus-visible{
     outline:2px solid rgba(239,92,150,0.26);
     outline-offset:2px;
